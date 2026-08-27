@@ -1,193 +1,3 @@
-// const $ = (s, p = document) => p.querySelector(s),
-//   $$ = (s, p = document) => [...p.querySelectorAll(s)];
-
-// const header = $("#header");
-// const menuToggle = $(".menu-toggle");
-// const mobileMenu = $("#mobileMenu");
-
-// /* =========================
-//    MOBILE MENU
-// ========================= */
-
-// menuToggle.addEventListener("click", () => {
-//   const isOpen = mobileMenu.classList.toggle("open");
-
-//   menuToggle.setAttribute("aria-expanded", isOpen);
-
-//   document.body.classList.toggle("menu-open", isOpen);
-// });
-
-// /* Close mobile menu when clicking a link */
-
-// $$(".mobile-menu a").forEach((a) => {
-//   a.addEventListener("click", () => {
-//     mobileMenu.classList.remove("open");
-
-//     menuToggle.setAttribute("aria-expanded", "false");
-
-//     document.body.classList.remove("menu-open");
-//   });
-// });
-
-// /* Close menu when clicking outside */
-
-// document.addEventListener("click", (e) => {
-//   if (
-//     mobileMenu.classList.contains("open") &&
-//     !mobileMenu.contains(e.target) &&
-//     !menuToggle.contains(e.target)
-//   ) {
-//     mobileMenu.classList.remove("open");
-
-//     menuToggle.setAttribute("aria-expanded", "false");
-
-//     document.body.classList.remove("menu-open");
-//   }
-// });
-
-// //contacbt us
-
-// const backTop = document.getElementById("backTop");
-// window.addEventListener("scroll", () => {
-//   backTop.classList.toggle("visible", window.scrollY > 400);
-// });
-// backTop.addEventListener("click", () =>
-//   window.scrollTo({ top: 0, behavior: "smooth" }),
-// );
-
-// const accordions = document.querySelectorAll(".footer-accordion");
-// function syncAccordions() {
-//   const isMobile = window.innerWidth <= 900;
-//   accordions.forEach((el, i) => {
-//     if (isMobile) {
-//       el.removeAttribute("data-locked");
-//       if (!el.hasAttribute("data-user-toggled")) el.open = false;
-//     } else {
-//       el.open = true;
-//     }
-//   });
-// }
-// accordions.forEach((el) => {
-//   el.addEventListener("toggle", () => el.setAttribute("data-user-toggled", ""));
-// });
-// syncAccordions();
-// window.addEventListener("resize", syncAccordions);
-
-// const form = document.getElementById("quoteForm");
-// const status = form.querySelector(".form-status");
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   status.textContent = "Thanks — we'll be in touch shortly.";
-//   status.style.color = "#7a5a2f";
-//   form.reset();
-// });
-// // project
-
-// const filters = document.querySelectorAll(".filter");
-// const projects = document.querySelectorAll(".project");
-// filters.forEach((btn) => {
-//   btn.addEventListener("click", () => {
-//     filters.forEach((f) => f.classList.remove("active"));
-//     btn.classList.add("active");
-//     const cat = btn.dataset.filter;
-//     projects.forEach((p) => {
-//       const match = cat === "all" || p.dataset.category === cat;
-//       p.style.display = match ? "" : "none";
-//     });
-//   });
-// });
-// // tesimonal
-// const track = document.getElementById("testimonialTrack");
-// const slides = Array.from(track.children);
-// const dotsWrap = document.getElementById("dots");
-// const prevBtn = document.querySelector(".slider-btn.prev");
-// const nextBtn = document.querySelector(".slider-btn.next");
-
-// let perView = 3;
-// let index = 0;
-// let autoTimer;
-
-// function getPerView() {
-//   const w = window.innerWidth;
-//   if (w <= 700) return 1;
-//   if (w <= 1024) return 2;
-//   return 3;
-// }
-
-// function maxIndex() {
-//   return Math.max(0, slides.length - perView);
-// }
-
-// function buildDots() {
-//   dotsWrap.innerHTML = "";
-//   const pages = maxIndex() + 1;
-//   for (let i = 0; i < pages; i++) {
-//     const d = document.createElement("button");
-//     d.setAttribute("aria-label", "Go to slide " + (i + 1));
-//     d.addEventListener("click", () => goTo(i));
-//     dotsWrap.appendChild(d);
-//   }
-// }
-
-// function render() {
-//   const slideWidth = slides[0].getBoundingClientRect().width;
-//   const gap = 24;
-//   track.style.transform = `translateX(-${index * (slideWidth + gap)}px)`;
-//   const dots = dotsWrap.querySelectorAll("button");
-//   dots.forEach((d, i) => d.classList.toggle("active", i === index));
-//   prevBtn.disabled = index === 0;
-//   nextBtn.disabled = index === maxIndex();
-// }
-
-// function goTo(i) {
-//   index = Math.min(Math.max(i, 0), maxIndex());
-//   render();
-//   resetAuto();
-// }
-// function next() {
-//   goTo(index >= maxIndex() ? 0 : index + 1);
-// }
-// function prev() {
-//   goTo(index <= 0 ? maxIndex() : index - 1);
-// }
-// function resetAuto() {
-//   clearInterval(autoTimer);
-//   autoTimer = setInterval(next, 5500);
-// }
-
-// function refresh() {
-//   const newPerView = getPerView();
-//   if (newPerView !== perView) {
-//     perView = newPerView;
-//     buildDots();
-//     index = Math.min(index, maxIndex());
-//   }
-//   render();
-// }
-
-// nextBtn.addEventListener("click", next);
-// prevBtn.addEventListener("click", prev);
-// window.addEventListener("resize", refresh);
-
-// let startX = 0;
-// track.addEventListener("touchstart", (e) => (startX = e.touches[0].clientX), {
-//   passive: true,
-// });
-// track.addEventListener("touchend", (e) => {
-//   const diff = e.changedTouches[0].clientX - startX;
-//   if (diff > 40) prev();
-//   else if (diff < -40) next();
-// });
-
-// buildDots();
-// refresh();
-// resetAuto();
-
-/* =========================================================
-   PRIME WOOD / PREM INTERIORS
-   COMPLETE WEBSITE JAVASCRIPT
-   ========================================================= */
-
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -200,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
   const mobileMenu = document.getElementById("mobileMenu");
   const mobileLinks = document.querySelectorAll(".mobile-links a");
+  const mobileClose = document.querySelector(".mobile-close");
 
   const desktopNavLinks = document.querySelectorAll(".nav-link");
 
@@ -223,8 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextButton = document.querySelector(".slider-btn.next");
   const dotsContainer = document.getElementById("dots");
 
-  const quoteForm = document.getElementById("quoteForm");
-  const formStatus = document.querySelector(".form-status");
+  /* NOTE: form id matches the actual HTML markup: id="contact-form" */
+  const quoteForm = document.getElementById("contact-form");
+  const formStatus = quoteForm
+    ? quoteForm.querySelector(".form-status")
+    : document.querySelector(".form-status");
 
   /* =========================================================
      02. MOBILE MENU
@@ -265,6 +79,19 @@ document.addEventListener("DOMContentLoaded", () => {
   if (menuToggle) {
     menuToggle.addEventListener("click", toggleMobileMenu);
   }
+
+  if (mobileClose) {
+    mobileClose.addEventListener("click", closeMobileMenu);
+  }
+
+  /* Delegated fallback: catches the close button even if clicked on
+     one of its inner <span> elements, and even if the button gets
+     re-rendered after this script first runs. */
+  document.addEventListener("click", (event) => {
+    if (event.target.closest(".mobile-close")) {
+      closeMobileMenu();
+    }
+  });
 
   /* Close menu after clicking mobile navigation */
 
@@ -1105,7 +932,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
-     13. QUOTE FORM VALIDATION
+     13. QUOTE FORM VALIDATION + WEB3FORMS SUBMISSION
      ========================================================= */
 
   function showFormStatus(message, type = "info") {
@@ -1268,6 +1095,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const messageInput = quoteForm.querySelector('[name="message"]');
 
+    const submitButton = quoteForm.querySelector('button[type="submit"]');
+
+    const originalButtonText = submitButton ? submitButton.textContent : "";
+
     /* Validate while typing */
 
     if (nameInput) {
@@ -1297,6 +1128,9 @@ document.addEventListener("DOMContentLoaded", () => {
     /* Submit */
 
     quoteForm.addEventListener("submit", (event) => {
+      /* This MUST run first, before anything else, so a native
+         redirect to Web3Forms can never happen even if a later
+         line throws an error. */
       event.preventDefault();
 
       showFormStatus("Checking your information...", "info");
@@ -1334,8 +1168,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      /* Submits to Netlify Forms so an email notification is sent
-         on each enquiry — see https://docs.netlify.com/forms/setup/ */
+      /* Submits to Web3Forms via fetch (AJAX) so the browser
+         stays on this page instead of redirecting to
+         api.web3forms.com — see https://web3forms.com/ */
 
       const formData = new FormData(quoteForm);
 
@@ -1343,14 +1178,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const service = formData.get("service");
 
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
+
       showFormStatus("Sending your enquiry...", "info");
 
-      fetch("/", {
+      fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
       })
-        .then(() => {
+        .then((response) => response.json())
+        .then((result) => {
+          if (!result.success) {
+            throw new Error(result.message || "Submission failed");
+          }
+
           showFormStatus(
             `Thank you ${name}! Your ${service} enquiry has been received.`,
             "success",
@@ -1372,11 +1219,19 @@ document.addEventListener("DOMContentLoaded", () => {
             showFormStatus("We will contact you shortly.", "success");
           }, 3500);
         })
-        .catch(() => {
+        .catch((error) => {
+          console.error(error);
+
           showFormStatus(
             "Something went wrong. Please call or WhatsApp us instead.",
             "error",
           );
+        })
+        .finally(() => {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+          }
         });
     });
   }
@@ -1646,7 +1501,7 @@ document.addEventListener("DOMContentLoaded", () => {
      ========================================================= */
 
   console.log(
-    "%cPrime Wood website JavaScript loaded successfully.",
+    "%cPrem Interior website JavaScript loaded successfully. (mobile-close fix active)",
     "color:#c28a52;font-weight:700;font-size:14px;",
   );
 });
